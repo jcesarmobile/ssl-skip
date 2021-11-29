@@ -26,8 +26,7 @@
     "lint": "npm run eslint && npm run prettier -- --check",
     "fmt": "npm run eslint -- --fix && npm run prettier -- --write",
     "eslint": "eslint . --ext ts",
-    "prettier": "prettier \"**/*.{css,html,ts,js,java}\"",
-    "prepublishOnly": "npm run build"
+    "prettier": "prettier \"**/*.{css,html,ts,js,java}\""
   },
   "devDependencies": {
     "@capacitor/android": "^3.0.0",
