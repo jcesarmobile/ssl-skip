@@ -1,22 +1,67 @@
 package com.jcesarmobile.sslskip;
 
-import com.getcapacitor.JSObject;
+import android.net.http.SslError;
+import android.webkit.SslErrorHandler;
+import android.webkit.WebView;
+
+import com.getcapacitor.BridgeWebViewClient;
 import com.getcapacitor.Plugin;
-import com.getcapacitor.PluginCall;
-import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
+
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 @CapacitorPlugin(name = "SslSkip")
 public class SslSkipPlugin extends Plugin {
 
-    private SslSkip implementation = new SslSkip();
+    TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
+        public X509Certificate[] getAcceptedIssuers() {
+            return new X509Certificate[]{};
+        }
 
-    @PluginMethod
-    public void echo(PluginCall call) {
-        String value = call.getString("value");
+        @Override
+        public void checkClientTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {
+            // Not implemented
+        }
 
-        JSObject ret = new JSObject();
-        ret.put("value", implementation.echo(value));
-        call.resolve(ret);
+        @Override
+        public void checkServerTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {
+            // Not implemented
+        }
+    }};
+
+    public void load() {
+        try {
+            SSLContext sc = SSLContext.getInstance("TLS");
+            sc.init(null, trustAllCerts, new java.security.SecureRandom());
+            HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+            HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier() { @Override public boolean verify(String hostname, SSLSession session) { return true; } });
+            HttpsURLConnection.setFollowRedirects(true);
+        } catch (KeyManagementException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void handleOnStart() {
+        super.handleOnStart();
+        this.bridge.getWebView().setWebViewClient(new BridgeWebViewClient(this.bridge) {
+            @Override
+            public void onReceivedSslError(WebView view, final SslErrorHandler handler, SslError error) {
+                handler.proceed();
+            }
+        });
+        getBridge().getWebView().loadUrl(getBridge().getServerUrl());
     }
 }
