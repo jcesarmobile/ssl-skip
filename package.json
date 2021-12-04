@@ -1,6 +1,6 @@
 {
   "name": "@jcesarmobile/ssl-skip",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Capacitor plugin for skipping ssl checks",
   "files": [
     "android/src/main/",
