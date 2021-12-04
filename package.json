@@ -4,7 +4,10 @@
   "description": "Capacitor plugin for skipping ssl checks",
   "files": [
     "android/src/main/",
-    "android/build.gradle"
+    "android/build.gradle",
+    "dist/",
+    "ios/Plugin/",
+    "JcesarmobileSslSkip.podspec"
   ],
   "author": "jcesarmobile",
   "license": "MIT",
@@ -21,16 +24,25 @@
     "native"
   ],
   "scripts": {
-    "verify": "npm run verify:android",
+    "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",
+    "verify:ios": "cd ios && pod install && xcodebuild -workspace Plugin.xcworkspace -scheme Plugin && cd ..",
     "verify:android": "cd android && ./gradlew clean build test && cd ..",
     "lint": "npm run eslint && npm run prettier -- --check",
     "fmt": "npm run eslint -- --fix && npm run prettier -- --write",
     "eslint": "eslint . --ext ts",
-    "prettier": "prettier \"**/*.{css,html,ts,js,java}\""
+    "prettier": "prettier \"**/*.{css,html,ts,js,java}\"",
+    "swiftlint": "node-swiftlint",
+    "docgen": "docgen --api SslSkipPlugin --output-readme README.md --output-json dist/docs.json",
+    "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.js",
+    "clean": "rimraf ./dist",
+    "watch": "tsc --watch",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@capacitor/android": "^3.0.0",
     "@capacitor/core": "^3.0.0",
+    "@capacitor/docgen": "^0.0.18",
+    "@capacitor/ios": "^3.0.0",
     "@ionic/eslint-config": "^0.3.0",
     "@ionic/prettier-config": "^1.0.1",
     "eslint": "^7.11.0",
@@ -44,10 +56,14 @@
     "@capacitor/core": "^3.0.0"
   },
   "prettier": "@ionic/prettier-config",
+  "swiftlint": "@ionic/swiftlint-config",
   "eslintConfig": {
     "extends": "@ionic/eslint-config/recommended"
   },
   "capacitor": {
+    "ios": {
+      "src": "ios"
+    },
     "android": {
       "src": "android"
     }
