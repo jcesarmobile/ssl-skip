@@ -9,13 +9,10 @@
 /* Begin PBXBuildFile section */
 		03FC29A292ACC40490383A1F /* Pods_Plugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B2A61DA5A1F2DD4F959604D /* Pods_Plugin.framework */; };
 		20C0B05DCFC8E3958A738AF2 /* Pods_PluginTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6753A823D3815DB436415E3 /* Pods_PluginTests.framework */; };
-		2F98D68224C9AAE500613A4C /* SslSkip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F98D68124C9AAE400613A4C /* SslSkip.swift */; };
 		50ADFF92201F53D600D50D53 /* Plugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50ADFF88201F53D600D50D53 /* Plugin.framework */; };
-		50ADFF97201F53D600D50D53 /* SslSkipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ADFF96201F53D600D50D53 /* SslSkipTests.swift */; };
 		50ADFF99201F53D600D50D53 /* SslSkipPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 50ADFF8B201F53D600D50D53 /* SslSkipPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50ADFFA42020D75100D50D53 /* Capacitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50ADFFA52020D75100D50D53 /* Capacitor.framework */; };
 		50ADFFA82020EE4F00D50D53 /* SslSkipPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ADFFA72020EE4F00D50D53 /* SslSkipPlugin.m */; };
-		50E1A94820377CB70090CE1A /* SslSkipPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E1A94720377CB70090CE1A /* SslSkipPlugin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,17 +26,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2F98D68124C9AAE400613A4C /* SslSkip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SslSkip.swift; sourceTree = "<group>"; };
 		3B2A61DA5A1F2DD4F959604D /* Pods_Plugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Plugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50ADFF88201F53D600D50D53 /* Plugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Plugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50ADFF8B201F53D600D50D53 /* SslSkipPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SslSkipPlugin.h; sourceTree = "<group>"; };
 		50ADFF8C201F53D600D50D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50ADFF91201F53D600D50D53 /* PluginTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PluginTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		50ADFF96201F53D600D50D53 /* SslSkipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SslSkipTests.swift; sourceTree = "<group>"; };
-		50ADFF98201F53D600D50D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50ADFFA52020D75100D50D53 /* Capacitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Capacitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50ADFFA72020EE4F00D50D53 /* SslSkipPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SslSkipPlugin.m; sourceTree = "<group>"; };
-		50E1A94720377CB70090CE1A /* SslSkipPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SslSkipPlugin.swift; sourceTree = "<group>"; };
 		5E23F77F099397094342571A /* Pods-Plugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plugin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Plugin/Pods-Plugin.debug.xcconfig"; sourceTree = "<group>"; };
 		91781294A431A2A7CC6EB714 /* Pods-Plugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plugin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Plugin/Pods-Plugin.release.xcconfig"; sourceTree = "<group>"; };
 		96ED1B6440D6672E406C8D19 /* Pods-PluginTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PluginTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PluginTests/Pods-PluginTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -73,7 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				50ADFF8A201F53D600D50D53 /* Plugin */,
-				50ADFF95201F53D600D50D53 /* PluginTests */,
 				50ADFF89201F53D600D50D53 /* Products */,
 				8C8E7744173064A9F6D438E3 /* Pods */,
 				A797B9EFA3DCEFEA1FBB66A9 /* Frameworks */,
@@ -92,22 +84,11 @@
 		50ADFF8A201F53D600D50D53 /* Plugin */ = {
 			isa = PBXGroup;
 			children = (
-				50E1A94720377CB70090CE1A /* SslSkipPlugin.swift */,
-				2F98D68124C9AAE400613A4C /* SslSkip.swift */,
 				50ADFF8B201F53D600D50D53 /* SslSkipPlugin.h */,
 				50ADFFA72020EE4F00D50D53 /* SslSkipPlugin.m */,
 				50ADFF8C201F53D600D50D53 /* Info.plist */,
 			);
 			path = Plugin;
-			sourceTree = "<group>";
-		};
-		50ADFF95201F53D600D50D53 /* PluginTests */ = {
-			isa = PBXGroup;
-			children = (
-				50ADFF96201F53D600D50D53 /* SslSkipTests.swift */,
-				50ADFF98201F53D600D50D53 /* Info.plist */,
-			);
-			path = PluginTests;
 			sourceTree = "<group>";
 		};
 		8C8E7744173064A9F6D438E3 /* Pods */ = {
@@ -306,8 +287,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50E1A94820377CB70090CE1A /* SslSkipPlugin.swift in Sources */,
-				2F98D68224C9AAE500613A4C /* SslSkip.swift in Sources */,
 				50ADFFA82020EE4F00D50D53 /* SslSkipPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,7 +295,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50ADFF97201F53D600D50D53 /* SslSkipTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
