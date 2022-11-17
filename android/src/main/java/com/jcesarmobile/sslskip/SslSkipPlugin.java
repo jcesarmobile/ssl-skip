@@ -51,17 +51,11 @@ public class SslSkipPlugin extends Plugin {
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    protected void handleOnStart() {
-        super.handleOnStart();
-        this.bridge.getWebView().setWebViewClient(new BridgeWebViewClient(this.bridge) {
+        this.bridge.setWebViewClient(new BridgeWebViewClient(this.bridge) {
             @Override
             public void onReceivedSslError(WebView view, final SslErrorHandler handler, SslError error) {
                 handler.proceed();
             }
         });
-        getBridge().getWebView().loadUrl(getBridge().getServerUrl());
     }
 }
