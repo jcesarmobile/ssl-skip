@@ -31,7 +31,9 @@
 
 - (void)SkipSSLwebView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential))completionHandler{
   NSURLCredential * credential = [[NSURLCredential alloc] initWithTrust:[challenge protectionSpace].serverTrust];
-  completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
+  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
+  });
 }
 
 @end
