@@ -6,6 +6,8 @@ When trying to use a local web server with self signed certificates to serve a C
 
 This plugin skips the SSL checks so the app loads.
 
+The plugin is updated for Capacitor 5, but should work on any Capacitor version.
+
 ## Install
 
 ```bash
