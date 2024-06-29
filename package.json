@@ -32,8 +32,8 @@
     "swiftlint": "node-swiftlint"
   },
   "devDependencies": {
-    "@capacitor/android": "^5.0.0",
-    "@capacitor/ios": "^5.0.0",
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/ios": "^6.0.0",
     "@ionic/prettier-config": "^2.0.0",
     "prettier": "~2.7.1",
     "prettier-plugin-java": "~1.6.2",
