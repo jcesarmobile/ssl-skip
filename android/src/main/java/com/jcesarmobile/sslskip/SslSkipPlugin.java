@@ -87,7 +87,7 @@ public class SslSkipPlugin extends Plugin {
         this.bridge.setWebViewClient(new BridgeWebViewClient(this.bridge) {
             @Override
             public void onReceivedSslError(WebView view, final SslErrorHandler handler, SslError error) {
-              if (isAllowUntrusted) {
+              if (allowUntrusted) {
                 handler.proceed();
               }
               else {
