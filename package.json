@@ -28,16 +28,16 @@
     "verify:android": "cd android && ./gradlew clean build test && cd ..",
     "lint": "npm run prettier -- --check",
     "fmt": "npm run prettier -- --write",
-    "prettier": "prettier \"**/*.{css,html,ts,js,java}\"",
+    "prettier": "prettier \"**/*.{css,html,ts,js,java}\" --plugin=prettier-plugin-java",
     "swiftlint": "node-swiftlint"
   },
   "devDependencies": {
-    "@capacitor/android": "^6.0.0",
-    "@capacitor/ios": "^6.0.0",
-    "@ionic/prettier-config": "^2.0.0",
-    "prettier": "~2.7.1",
-    "prettier-plugin-java": "~1.6.2",
-    "swiftlint": "^1.0.1"
+    "@capacitor/android": "^7.0.0",
+    "@capacitor/ios": "^7.0.0",
+    "@ionic/prettier-config": "^4.0.0",
+    "prettier": "^3.4.2",
+    "prettier-plugin-java": "^2.6.6",
+    "swiftlint": "^2.0.0"
   },
   "prettier": "@ionic/prettier-config",
   "swiftlint": "@ionic/swiftlint-config",
