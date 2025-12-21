@@ -5,8 +5,9 @@
   "files": [
     "android/src/main/",
     "android/build.gradle",
-    "ios/Plugin/",
-    "JcesarmobileSslSkip.podspec"
+    "ios/Sources",
+    "JcesarmobileSslSkip.podspec",
+    "Package.swift"
   ],
   "author": "jcesarmobile",
   "license": "MIT",
@@ -24,7 +25,7 @@
   ],
   "scripts": {
     "verify": "npm run verify:ios && npm run verify:android",
-    "verify:ios": "cd ios && pod install && xcodebuild -workspace Plugin.xcworkspace -scheme Plugin && cd ..",
+    "verify:ios": "xcodebuild build -scheme JcesarmobileSslSkip -destination generic/platform=iOS",
     "verify:android": "cd android && ./gradlew clean build test && cd ..",
     "lint": "npm run prettier -- --check",
     "fmt": "npm run prettier -- --write",
